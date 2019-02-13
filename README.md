@@ -35,8 +35,14 @@ aws cloudformation describe-stacks --stack-name MicronautGraalMyApp
 The function can be invoked by sending an API Gateway Proxy request. For example:
 
 ```bash
-aws lambda invoke --function-name my-app --payload '{"resource": "/{proxy+}", "path": "/ping", "httpMethod": "GET"}' build/response.txt
+aws lambda invoke --function-name MicronautGraalMyApp-MyServiceFunction-DEADBEEF --payload '{"resource": "/{proxy+}", "path": "/ping", "httpMethod": "GET"}' build/response.txt
 cat build/response.txt
+```
+
+or using URL from `aws cloudformation describe-stacks --stack-name MicronautGraalMyApp` execute curl request:
+
+```
+curl https://deadbeef.execute-api.eu-west-1.amazonaws.com/Prod/ping
 ```
 
 You should replace the `/ping` path entry with the URI the controller endpoint you wish to invoke.
