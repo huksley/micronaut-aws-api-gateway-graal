@@ -8,7 +8,7 @@ This app was generated using
 mn create-app my-app --features aws-api-gateway-graal
 ```
 
-## Building and deploying
+## Building
 
 This example demonstrates how to use Micronaut AWS API Gateway Proxy support and GraalVM to construct a custom runtime that runs native images or Lambda.
 
@@ -19,6 +19,14 @@ $ docker build . -t my-app
 $ mkdir build
 $ docker run --rm --entrypoint cat my-app  /home/application/function.zip > build/function.zip
 ```
+
+## Running locally
+
+Make sure you have [sam](https://github.com/awslabs/aws-sam-cli/) installed.
+Run ./sam-local to start API from native function.
+Open http://localhost:3000/
+
+## Deploying
 
 Which will add the function deployment ZIP file to `build/function.zip`. 
 First, create S3 bucket for deployment, for example `my-bucket-for-function`.
