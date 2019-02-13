@@ -27,7 +27,6 @@ CMD ["/usr/lib/graalvm/bin/native-image"]
 FROM graalvm
 COPY --from=builder /home/application/ /home/application/
 WORKDIR /home/application
-RUN /usr/lib/graalvm/bin/java -cp build/libs/my-app-*.jar io.micronaut.graal.reflect.GraalClassLoadingAnalyzer
 RUN /home/application/build-native-image.sh
 RUN chmod 755 bootstrap
 RUN chmod 755 server
