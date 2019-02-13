@@ -34,7 +34,10 @@ dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java"
     annotationProcessor "io.micronaut:micronaut-validation"
     compile "io.micronaut:micronaut-http-client"
-    compile("io.micronaut.aws:micronaut-function-aws-custom-runtime") {
+    compile("io.micronaut.aws:micronaut-function-aws-custom-runtime:${micronautVersion}") {
+        exclude group: "com.fasterxml.jackson.module", module: "jackson-module-afterburner"
+    }
+    compile("io.micronaut.aws:micronaut-function-aws-api-proxy:${micronautVersion}") {
         exclude group: "com.fasterxml.jackson.module", module: "jackson-module-afterburner"
     }
     compile "io.micronaut:micronaut-http-server-netty"
