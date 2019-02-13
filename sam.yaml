@@ -22,8 +22,8 @@ Resources:
             Method: any
 
 Outputs:
-  MyServiceApi:
+  MyAppGraalApi:
     Description: URL for application
     Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/ping'
     Export:
-      Name: MyServiceApi
+      Name: MyAppGraalApi
